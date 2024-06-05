@@ -151,6 +151,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
     - [1.2.1] PravanJain's HDL Visualizer
     - [1.2.2] Create a local img file from the visualization
     - [1.2.3] Automatically append to tst file as an img comment
+- [1.3] Implement Gate Logic builder for CUSTOM gate option
 
 See the [open issues](https://github.com/NatiG7/Nand2T_Test_Maker/issues) for a full list of proposed features (and known issues).
 
