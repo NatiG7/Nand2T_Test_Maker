@@ -124,6 +124,8 @@ Produces a cmp file that contains a truth table for the specified inputs and out
 * Clone this repo to a directory of your choice
 * Run Tstmkr.py
 * the created files will be written to the current directory the script will be at.
+** Copying the code will work too. at the moment
+   there are no required files in this repo.
 * After the script completes, you will have the ready *.tst and *.cmp files to run with the hardware simulator
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -145,7 +147,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ## Roadmap
 
 - [1.0] Creating Test Files for basic gates, NAND, NOT, AND, OR etc.
-  - [1.0.1] Verify XOR,NOR,
+  - [1.0.1] Verify XOR,NOR,XNOR,MUX,DMUX
 - [1.1] Add support for more complex gates
   - [1.1.1] Advanced logic application for gate types
   - [1.1.2] Ability to run multiple gate test creation
