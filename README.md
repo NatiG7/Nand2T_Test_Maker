@@ -34,7 +34,7 @@
 <h3 align="center">Nand2Tetris Custom Gate Test Maker</h3>
 
   <p align="center">
-    This is a test maker for the Nand2Tetris hardware simulator!
+    This is a test maker for the Nand2Tetris hardware simulator! <br><a href="https://www.nand2tetris.org/"><strong>Nand2Tetris Website</strong></a><br>
     Creates .tst and .cmp files and works with different logic gates, writes the tst files to match the standard tests in N2THWSim.
     <br />
     <a href="https://github.com/NatiG7/Nand2T_Test_Maker"><strong>Explore the docs »</strong></a>
@@ -122,8 +122,9 @@ Produces a cmp file that contains a truth table for the specified inputs and out
 ### Installation
 
 * Clone this repo to a directory of your choice
-* Run Tstmkr1.0.py
+* Run Tstmkr.py
 * the created files will be written to the current directory the script will be at.
+* After the script completes, you will have the ready *.tst and *.cmp files to run with the hardware simulator
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -144,6 +145,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ## Roadmap
 
 - [1.0] Creating Test Files for basic gates, NAND, NOT, AND, OR etc.
+  - [1.0.1] Verify XOR,NOR,
 - [1.1] Add support for more complex gates
   - [1.1.1] Advanced logic application for gate types
   - [1.1.2] Ability to run multiple gate test creation
@@ -188,7 +190,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Nati G - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Nati G - email@email_client.com
 
 Project Link: [https://github.com/NatiG7/Nand2T_Test_Maker](https://github.com/NatiG7/Nand2T_Test_Maker)
 

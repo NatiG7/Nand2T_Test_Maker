@@ -1,5 +1,11 @@
 import itertools
 
+def init():
+    print("Welcome to the Logic Gate and Circuit Tester Program!")
+    print("This program will help you generate test and comparison files for various logic gates and circuits.")
+    print("You will be prompted to enter module details including the type of gate, number of inputs and outputs, and their names.")
+    print("Let's get started!\n")
+
 def get_input_info():
 
     # Function to get user input for the module name, the type of gate or chip,
@@ -168,6 +174,59 @@ def calculate_outputs(gate_type, inputs):
             return [format(a | b, '016b')]
         elif gate_type == "NOT16":
             return [format(~a & 0xFFFF, '016b')]
+    elif gate_type == "XNOR":
+    # XNOR gate output: 1 if an even number of inputs are 1, else 0
+        result = inputs[0]
+        for i in inputs[1:]:
+            result ^= i
+        return [str(int(not result))]
+    elif gate_type == "MUX":
+        # MUX output: select input based on selector
+        selector = inputs[-1]
+        return [str(inputs[selector])]
+    elif gate_type == "DEMUX":
+        # DEMUX output: route input to one of the outputs based on selector
+        selector = inputs[-1]
+        outputs = ['0'] * (2 ** (len(inputs) - 1))
+        outputs[selector] = str(inputs[0])
+        return outputs
+    elif gate_type == "HALF_ADDER":
+        # HALF_ADDER: sum and carry out
+        a, b = inputs
+        sum_result = a ^ b
+        carry_out = a & b
+        return [str(sum_result), str(carry_out)]
+    elif gate_type == "FULL_ADDER":
+        # FULL_ADDER: sum and carry out with carry in
+        a, b, carry_in = inputs
+        sum_result = a ^ b ^ carry_in
+        carry_out = (a & b) | (b & carry_in) | (carry_in & a)
+        return [str(sum_result), str(carry_out)]
+    elif gate_type == "4_BIT_ADDER":
+        # 4_BIT_ADDER: add two 4-bit numbers
+        a = int("".join(map(str, inputs[:4])), 2)
+        b = int("".join(map(str, inputs[4:8])), 2)
+        result = a + b
+        return [format(result, '04b')]
+    elif gate_type == "2_TO_4_DECODER":
+        # 2_TO_4_DECODER: decode 2-bit input to 4-bit output
+        selector = int("".join(map(str, inputs)), 2)
+        outputs = ['0'] * 4
+        outputs[selector] = '1'
+        return outputs
+    elif gate_type == "3_TO_8_DECODER":
+        # 3_TO_8_DECODER: decode 3-bit input to 8-bit output
+        selector = int("".join(map(str, inputs)), 2)
+        outputs = ['0'] * 8
+        outputs[selector] = '1'
+        return outputs
+    elif gate_type == "PRIORITY_ENCODER":
+        # PRIORITY_ENCODER: encode highest priority input
+        for i, input_val in enumerate(reversed(inputs)):
+            if input_val == 1:
+                return [format(len(inputs) - 1 - i, '03b')]
+        return ['0' * len(inputs)]
+    
     elif gate_type == "CUSTOM":
         # Example custom logic: simple adder with sum and carry out
         if len(inputs) == 2:
@@ -206,7 +265,8 @@ def format_cmp_output_line(inputs, output_values, gate_type, num_inputs):
 
 
 def main():
-
+    # Welcome message and instructions
+    init()
     # Main function that orchestrates the generation of test and comparison files.
 
     # Get input and output information from the user
