@@ -147,7 +147,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ## Roadmap
 
 - [1.0] Creating Test Files for basic gates, NAND, NOT, AND, OR etc.
-  - [1.0.1] Verify XOR,NOR,
+  - [1.0.1] Verify XOR,NOR,XNOR,MUX,DMUX
 - [1.1] Add support for more complex gates
   - [1.1.1] Advanced logic application for gate types
   - [1.1.2] Ability to run multiple gate test creation
