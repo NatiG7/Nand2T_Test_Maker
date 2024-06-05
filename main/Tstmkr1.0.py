@@ -1,14 +1,14 @@
 import itertools
 
 def get_input_info():
-    """
-    Function to get user input for the module name, the type of gate or chip,
-    the number and names of inputs and outputs.
 
-    Returns:
-        tuple: Contains the module name, type of gate, number of inputs, input names,
-                number of outputs, and output names.
-    """
+    # Function to get user input for the module name, the type of gate or chip,
+    # the number and names of inputs and outputs.
+
+    # Returns:
+    #     tuple: Contains the module name, type of gate, number of inputs, input names,
+    #             number of outputs, and output names.
+
     module_name = input("Enter the name of the module: ")
     gate_type = input(
     "Enter the type of gate or chip:\n"
@@ -123,16 +123,16 @@ def generate_cmp_file(module_name, gate_type, num_inputs, input_names, num_outpu
 from functools import reduce
 
 def calculate_outputs(gate_type, inputs):
-    """
-    Function to calculate the outputs based on the gate type and inputs.
+
+    # Function to calculate the outputs based on the gate type and inputs.
     
-    Args:
-        gate_type (str): Type of the logical gate or chip.
-        inputs (tuple): Tuple containing input values as strings.
+    # Args:
+    #     gate_type (str): Type of the logical gate or chip.
+    #     inputs (tuple): Tuple containing input values as strings.
     
-    Returns:
-        list: List containing output values as strings.
-    """
+    # Returns:
+    #     list: List containing output values as strings.
+
     # Convert input strings to integers for bitwise operations
     inputs = list(map(int, inputs))
     
