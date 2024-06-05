@@ -2,9 +2,9 @@ import itertools
 import subprocess
 
 def myInit():
-    # Welcome message and instructions
+    # Welcome message and instructions, some colors too.
     print("Welcome to the Logic Gate and Circuit Tester Program!")
-    print("This program will help you generate " + Fore.GREEN + "test" + Fore.RESET + "  and " + Fore.GREEN + "comparison" + Fore.RESET + " files for various logic gates and circuits.")
+    print("This program will help you generate " + Fore.GREEN + "test" + Fore.RESET + "  and " + Fore.GREEN + "comparison" + Fore.RESET + " files for various " + Fore.CYAN + "logic gates" + Fore.RESET + " and " + Fore.CYAN + "circuits." + Fore.RESET)
     print("You will be prompted to enter module details including the type of gate, number of inputs and outputs, and their names.")
     print("Let's get started!\n")
 
