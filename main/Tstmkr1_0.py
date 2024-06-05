@@ -4,7 +4,7 @@ import subprocess
 def myInit():
     # Welcome message and instructions
     print("Welcome to the Logic Gate and Circuit Tester Program!")
-    print("This program will help you generate test and comparison files for various logic gates and circuits.")
+    print("This program will help you generate " + Fore.GREEN + "test" + Fore.RESET + "  and " + Fore.GREEN + "comparison" + Fore.RESET + " files for various logic gates and circuits.")
     print("You will be prompted to enter module details including the type of gate, number of inputs and outputs, and their names.")
     print("Let's get started!\n")
 
@@ -84,7 +84,6 @@ def get_input_info():
     # Input names input validation
     input_names = []
     print("Enter input names:")
-    print()
     for i in tqdm(range(num_inputs),ncols=80):
         while True:
             input_name = input(Fore.CYAN + f"\n### Enter name for input {i+1}: " + Fore.RESET).strip()
