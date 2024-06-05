@@ -1,13 +1,31 @@
 import itertools
+import subprocess
 
-def init():
+def myInit():
+    # Welcome message and instructions
     print("Welcome to the Logic Gate and Circuit Tester Program!")
     print("This program will help you generate test and comparison files for various logic gates and circuits.")
     print("You will be prompted to enter module details including the type of gate, number of inputs and outputs, and their names.")
     print("Let's get started!\n")
 
-def get_input_info():
+def install_dependencies():
+    # Making sure users have the required libraries.
+    try:
+        import colorama
+    except ImportError:
+        print("Installing colorama...")
+        subprocess.check_call(["pip", "install", "colorama"])
 
+    try:
+        import tqdm
+    except ImportError:
+        print("Installing tqdm...")
+        subprocess.check_call(["pip", "install", "tqdm"])
+
+
+from tqdm import tqdm
+from colorama import init,Fore
+def get_input_info():
     # Function to get user input for the module name, the type of gate or chip,
     # the number and names of inputs and outputs.
 
@@ -15,26 +33,91 @@ def get_input_info():
     #     tuple: Contains the module name, type of gate, number of inputs, input names,
     #             number of outputs, and output names.
 
-    module_name = input("Enter the name of the module: ")
-    gate_type = input(
-    "Enter the type of gate or chip:\n"
-    "  - Basic Gates: AND, OR, NAND, NOR, XOR, XNOR, NOT\n"
-    "  - Compound Gates: MUX, DEMUX\n"
-    "  - Adders: HALF_ADDER, FULL_ADDER, 4_BIT_ADDER\n"
-    "  - Decoders: 2_TO_4_DECODER, 3_TO_8_DECODER\n"
-    "  - Encoders: PRIORITY_ENCODER\n"
-    "  - Multi-Bit Gates: OR16, AND16, NOT16\n"
-    "  - Custom Logic: CUSTOM\n"
-    "> "
-    ).upper()
-    
-    num_inputs = int(input("Enter the number of inputs: "))
-    input_names = [input(f"Enter name for input {i+1}: ") for i in range(num_inputs)]
+    # Define valid gate types
+    valid_gate_types = [
+        "AND", "OR", "NAND", "NOR", "XOR", "XNOR", "NOT",
+        "MUX", "DEMUX",
+        "HALF_ADDER", "FULL_ADDER", "4_BIT_ADDER",
+        "2_TO_4_DECODER", "3_TO_8_DECODER",
+        "PRIORITY_ENCODER",
+        "OR16", "AND16", "NOT16",
+        "CUSTOM"
+    ]
 
-    num_outputs = int(input("Enter the number of outputs: "))
-    output_names = [input(f"Enter name for output {i+1}: ") for i in range(num_outputs)]
+    # Module name input validation
+    while True:
+        module_name = input("Enter the name of the module: ").strip()
+        if module_name:
+            break
+        else:
+            print(Fore.RED +"Module name cannot be empty." + Fore.RESET)
+
+    # Gate type input validation
+    while True:
+        gate_type = input(
+            "Enter the type of gate or chip:\n"
+            "  - Basic Gates: AND, OR, NAND, NOR, XOR, XNOR, NOT\n"
+            "  - Compound Gates: MUX, DEMUX\n"
+            "  - Adders: HALF_ADDER, FULL_ADDER, 4_BIT_ADDER\n"
+            "  - Decoders: 2_TO_4_DECODER, 3_TO_8_DECODER\n"
+            "  - Encoders: PRIORITY_ENCODER\n"
+            "  - Multi-Bit Gates: OR16, AND16, NOT16\n"
+            "  - Custom Logic: CUSTOM\n"
+            "> "
+        ).strip().upper()
+        if gate_type in valid_gate_types:
+            break
+        else:
+            print(Fore.RED + "Invalid gate type. Please enter a valid gate type." + Fore.RESET)
+
+    # Number of inputs input validation
+    while True:
+        try:
+            num_inputs = int(input("Enter the number of inputs: "))
+            if num_inputs > 0:
+                break
+            else:
+                print("Number of inputs must be a positive integer.")
+        except ValueError:
+            print("Please enter a valid integer for the number of inputs.")
+
+    # Input names input validation
+    input_names = []
+    print("Enter input names:")
+    for i in tqdm(range(num_inputs)):
+        while True:
+            input_name = input(f"Enter name for input {i+1}: ").strip()
+            if input_name:
+                input_names.append(input_name)
+                break
+            else:
+                print("Input name cannot be empty.")
+
+    # Number of outputs input validation
+    while True:
+        try:
+            num_outputs = int(input("Enter the number of outputs: "))
+            if num_outputs > 0:
+                break
+            else:
+                print("Number of outputs must be a positive integer.")
+        except ValueError:
+            print("Please enter a valid integer for the number of outputs.")
+
+    # Output names input validation
+    output_names = []
+    print("Enter output names:")
+    for i in tqdm(range(num_outputs)):
+        while True:
+            output_name = input(f"Enter name for output {i+1}: ").strip()
+            if output_name:
+                output_names.append(output_name)
+                break
+            else:
+                print("Output name cannot be empty.")
 
     return module_name, gate_type, num_inputs, input_names, num_outputs, output_names
+
 
 def format_output_list(names, gate_type):
     # Formats the output list with specific spacing and format for a .tst file.
@@ -265,10 +348,12 @@ def format_cmp_output_line(inputs, output_values, gate_type, num_inputs):
 
 
 def main():
-    # Welcome message and instructions
-    init()
     # Main function that orchestrates the generation of test and comparison files.
-
+    
+    # Welcome message and instructions
+    myInit()
+    # Check dependencies and install if necessary
+    install_dependencies()
     # Get input and output information from the user
     module_name, gate_type, num_inputs, input_names, num_outputs, output_names = get_input_info()
     
@@ -282,7 +367,7 @@ def main():
     generate_cmp_file(module_name, gate_type, num_inputs, input_names, num_outputs, output_names)
     
     # Print a message indicating successful file generation
-    print(f"Test file ({module_name}.tst) and comparison file ({module_name}.cmp) generated.")
+    print(Fore.GREEN + f"Test file ({module_name}.tst) and comparison file ({module_name}.cmp) generated." + Fore.RESET)
 
 if __name__ == "__main__":
     main()
