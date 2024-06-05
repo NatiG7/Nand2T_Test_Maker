@@ -8,7 +8,7 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-
+<h1>UNDER CONSTRUCTION!</h1>
 
 <!-- PROJECT SHIELDS -->
 <!--
@@ -31,7 +31,7 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Nand2Tetris Custom Gate Test Maker</h3>
+<h3 align="center">Nand2Tetris Gate Test Maker</h3>
 
   <p align="center">
     This is a test maker for the Nand2Tetris hardware simulator! <br><a href="https://www.nand2tetris.org/"><strong>Nand2Tetris Website</strong></a><br>
@@ -153,6 +153,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
     - [1.2.1] PravanJain's HDL Visualizer
     - [1.2.2] Create a local img file from the visualization
     - [1.2.3] Automatically append to tst file as an img comment
+- [1.3] Implement Gate Logic builder for CUSTOM gate option
 
 See the [open issues](https://github.com/NatiG7/Nand2T_Test_Maker/issues) for a full list of proposed features (and known issues).
 
