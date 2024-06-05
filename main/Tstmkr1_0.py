@@ -84,9 +84,10 @@ def get_input_info():
     # Input names input validation
     input_names = []
     print("Enter input names:")
-    for i in tqdm(range(num_inputs)):
+    print()
+    for i in tqdm(range(num_inputs),ncols=80):
         while True:
-            input_name = input(f"Enter name for input {i+1}: ").strip()
+            input_name = input(Fore.CYAN + f"\n### Enter name for input {i+1}: " + Fore.RESET).strip()
             if input_name:
                 input_names.append(input_name)
                 break
@@ -107,9 +108,9 @@ def get_input_info():
     # Output names input validation
     output_names = []
     print("Enter output names:")
-    for i in tqdm(range(num_outputs)):
+    for i in tqdm(range(num_outputs), ncols=80):
         while True:
-            output_name = input(f"Enter name for output {i+1}: ").strip()
+            output_name = input(f"\n### Enter name for output {i+1}: ").strip()
             if output_name:
                 output_names.append(output_name)
                 break
