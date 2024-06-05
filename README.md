@@ -31,7 +31,7 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Nand2Tetris Custom Gate Test Maker</h3>
+<h3 align="center">Nand2Tetris Gate Test Maker</h3>
 
   <p align="center">
     This is a test maker for the Nand2Tetris hardware simulator!
