@@ -1,0 +1,2 @@
+colorama==0.4.6
+tqdm @ git+https://github.com/tqdm/tqdm.git@e84d488954c29483f2ce1e215fdb5cfd3689ab4a

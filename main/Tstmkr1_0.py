@@ -8,21 +8,6 @@ def myInit():
     print("You will be prompted to enter module details including the type of gate, number of inputs and outputs, and their names.")
     print("Let's get started!\n")
 
-def install_dependencies():
-    # Making sure users have the required libraries.
-    try:
-        import colorama
-    except ImportError:
-        print("Installing colorama...")
-        subprocess.check_call(["pip", "install", "colorama"])
-
-    try:
-        import tqdm
-    except ImportError:
-        print("Installing tqdm...")
-        subprocess.check_call(["pip", "install", "tqdm"])
-
-
 from tqdm import tqdm
 from colorama import init,Fore
 def get_input_info():
@@ -349,11 +334,8 @@ def format_cmp_output_line(inputs, output_values, gate_type, num_inputs):
 
 def main():
     # Main function that orchestrates the generation of test and comparison files.
-    
     # Welcome message and instructions
     myInit()
-    # Check dependencies and install if necessary
-    install_dependencies()
     # Get input and output information from the user
     module_name, gate_type, num_inputs, input_names, num_outputs, output_names = get_input_info()
     

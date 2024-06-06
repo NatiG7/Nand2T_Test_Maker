@@ -117,7 +117,7 @@ Produces a cmp file that contains a truth table for the specified inputs and out
 
 ### Prerequisites
 
-* Latest version of python.
+Please refer to requirements.txt
 
 ### Installation
 
