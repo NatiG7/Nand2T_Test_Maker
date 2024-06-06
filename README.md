@@ -122,11 +122,11 @@ Please refer to requirements.txt
 ### Installation
 
 * Clone this repo to a directory of your choice
-* Run Tstmkr.py
+* $ pip install -r requirements.txt
+* $ python Tstmkr1_0.py
 * the created files will be written to the current directory the script will be at.
-** Copying the code will work too. at the moment
-   there are no required files in this repo.
-* After the script completes, you will have the ready *.tst and *.cmp files to run with the hardware simulator
+* After the script completes, you will have the {MODULE_NAME}.tst and {MODULE_NAME}.cmp files
+* in the current directory to run with the hardware simulator.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
