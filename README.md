@@ -122,7 +122,7 @@ Please refer to requirements.txt
 
 ### Installation
 
-<img src="./images/install.png" alt="installation" width="1200" height="300"></img>
+![installation]
 
 * Clone this repo to a directory of your choice
 * $ git clonehttps://github.com/NatiG7/Nand2T_Test_Maker.git
