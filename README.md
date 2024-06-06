@@ -18,7 +18,6 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 ***https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -117,8 +116,8 @@ Produces a cmp file that contains a truth table for the specified inputs and out
 
 
 ### Prerequisites
-* [![Python][Python.py]][Python-url]
-* Please refer to requirements.txt
+
+Please refer to requirements.txt
 
 ### Installation
 
@@ -137,11 +136,8 @@ Produces a cmp file that contains a truth table for the specified inputs and out
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-
-|  [![Custom Gate][customgate]] |  [![Compare File][cmpfile]]  |
-|---|---|
-|  [![Test out][tstfile]] | [![Script out][runscript]]  |
-
+* [![Custom Gate][customgate]][![Compare File][cmpfile]]
+* [![Test out][tstfile]][![Script out][runscript]]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
