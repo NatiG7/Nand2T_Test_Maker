@@ -116,7 +116,7 @@ Produces a cmp file that contains a truth table for the specified inputs and out
 
 
 ### Prerequisites
-
+[![Python][Python.py]][Python-url]
 Please refer to requirements.txt
 
 ### Installation
