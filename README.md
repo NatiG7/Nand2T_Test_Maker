@@ -121,7 +121,7 @@ Produces a cmp file that contains a truth table for the specified inputs and out
 Please refer to requirements.txt
 
 ### Installation
-
+![.][installation]
 * Clone this repo to a directory of your choice
 * $ git clonehttps://github.com/NatiG7/Nand2T_Test_Maker.git
 * $ pip install -r requirements.txt
@@ -253,3 +253,4 @@ Project Link: https://github.com/NatiG7/Nand2T_Test_Maker]https://github.com/Nat
 [runscript]:images/ScriptOutput.png
 [tstfile]:images/TstFileexample.png
 [cmpfile]:images/cmpFileExample.png
+[installation]:/images/install.png
