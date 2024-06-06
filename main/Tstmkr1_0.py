@@ -3,11 +3,13 @@ import subprocess
 
 def myInit():
     # Welcome message and instructions, some colors too.
-    print("Welcome to the Logic Gate and Circuit Tester Program!")
-    print("This program will help you generate " + Fore.GREEN + "test" + Fore.RESET + "  and " + Fore.GREEN + "comparison" + Fore.RESET + " files for various " + Fore.CYAN + "logic gates" + Fore.RESET + " and " + Fore.CYAN + "circuits." + Fore.RESET)
-    print("You will be prompted to enter module details including the type of gate, number of inputs and outputs, and their names.")
-    print("Let's get started!\n")
-
+    print("Welcome to the Logic Gate and Circuit Tester Program!\nThis program will help you generate "
+        + Fore.GREEN + "test" + Fore.RESET + "  and " + Fore.GREEN + "comparison"
+        + Fore.RESET + " files for various " + Fore.CYAN + "logic gates"
+        + Fore.RESET + " and " + Fore.CYAN + "circuits.\n" + Fore.RESET
+        + "\nYou will be prompted to enter module details including the type of gate "
+        + "number of inputs and outputs, and their names."
+        + "Let's get started!\n")
 from tqdm import tqdm
 from colorama import init,Fore
 def get_input_info():
