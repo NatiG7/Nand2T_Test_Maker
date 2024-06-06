@@ -136,9 +136,9 @@ Please refer to requirements.txt
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-|![customgate]|![cmpfile]|
+|![customgate]|![runscript]|
 |---|---|
-|![tstfile]|![runscript]|
+|![tstfile]|![cmpfile]|
 
 
 
