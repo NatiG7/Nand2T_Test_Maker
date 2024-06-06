@@ -10,6 +10,7 @@ def myInit():
         + "\nYou will be prompted to enter module details including the type of gate "
         + "number of inputs and outputs, and their names."
         + "Let's get started!\n")
+    
 from tqdm import tqdm
 from colorama import init,Fore
 def get_input_info():

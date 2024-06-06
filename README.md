@@ -122,6 +122,7 @@ Please refer to requirements.txt
 ### Installation
 
 * Clone this repo to a directory of your choice
+* $ git clone https://github.com/NatiG7/Nand2T_Test_Maker.git
 * $ pip install -r requirements.txt
 * $ python Tstmkr1_0.py
 * the created files will be written to the current directory the script will be at.
