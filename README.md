@@ -136,8 +136,11 @@ Please refer to requirements.txt
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-* [![Custom Gate][customgate]][![Compare File][cmpfile]]
-* [![Test out][tstfile]][![Script out][runscript]]
+|![customgate]|![cmpfile]|
+|---|---|
+|![tstfile]|![runscript]|
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
