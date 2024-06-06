@@ -15,11 +15,10 @@ from colorama import init,Fore
 def get_input_info():
     # Function to get user input for the module name, the type of gate or chip,
     # the number and names of inputs and outputs.
-
     # Returns:
     #     tuple: Contains the module name, type of gate, number of inputs, input names,
     #             number of outputs, and output names.
-
+    
     # Define valid gate types
     valid_gate_types = [
         "AND", "OR", "NAND", "NOR", "XOR", "XNOR", "NOT",
@@ -30,7 +29,6 @@ def get_input_info():
         "OR16", "AND16", "NOT16",
         "CUSTOM"
     ]
-
     # Module name input validation
     while True:
         module_name = input("Enter the name of the module: ").strip()
@@ -38,7 +36,6 @@ def get_input_info():
             break
         else:
             print(Fore.RED +"Module name cannot be empty." + Fore.RESET)
-
     # Gate type input validation
     while True:
         gate_type = input(
@@ -56,7 +53,6 @@ def get_input_info():
             break
         else:
             print(Fore.RED + "Invalid gate type. Please enter a valid gate type." + Fore.RESET)
-
     # Number of inputs input validation
     while True:
         try:
@@ -67,7 +63,6 @@ def get_input_info():
                 print("Number of inputs must be a positive integer.")
         except ValueError:
             print("Please enter a valid integer for the number of inputs.")
-
     # Input names input validation
     input_names = []
     print("Enter input names:")
@@ -79,7 +74,6 @@ def get_input_info():
                 break
             else:
                 print("Input name cannot be empty.")
-
     # Number of outputs input validation
     while True:
         try:
@@ -90,7 +84,6 @@ def get_input_info():
                 print("Number of outputs must be a positive integer.")
         except ValueError:
             print("Please enter a valid integer for the number of outputs.")
-
     # Output names input validation
     output_names = []
     print("Enter output names:")
@@ -102,30 +95,22 @@ def get_input_info():
                 break
             else:
                 print("Output name cannot be empty.")
-
     return module_name, gate_type, num_inputs, input_names, num_outputs, output_names
-
 
 def format_output_list(names, gate_type):
     # Formats the output list with specific spacing and format for a .tst file.
-
     # Args:
     #     names (list): List of input/output names.
     #     gate_type (str): Type of the gate or chip.
-
     # Returns:
     #     str: Formatted output list string.
-
     if gate_type in ["AND16", "OR16", "NOT16"]:
         return " ".join([f"{name}%B16.1.16" for name in names])
     else:
         return " ".join([f"{name}%B3.1.3" for name in names])
 
-
 def generate_test_file(module_name, num_inputs, input_names, output_names, bit_width, gate_type):
-
     # Function to generate the .tst file for testing the specified module.
-
     # Args:
     #     module_name (str): The name of the module.
     #     num_inputs (int): Number of input pins.
@@ -133,14 +118,12 @@ def generate_test_file(module_name, num_inputs, input_names, output_names, bit_w
     #     output_names (list): List of output pin names.
     #     bit_width (int): Bit width for display.
     #     gate_type (str): Type of the logical gate or chip.
-
     with open(f"{module_name}.tst", "w") as f:
         f.write(f"// This file tests the {module_name} module\n")
         f.write(f"load {module_name}.hdl,\n")
         f.write(f"output-file {module_name}.out,\n")
         f.write(f"compare-to {module_name}.cmp,\n")
         f.write("output-list " + format_output_list(input_names + output_names, gate_type) + ";\n\n")
-
         if gate_type in ["AND16", "OR16", "NOT16"]:
             sample_inputs = [
                 ('0000000000000000', '0000000000000000'),
@@ -150,10 +133,8 @@ def generate_test_file(module_name, num_inputs, input_names, output_names, bit_w
                 ('0011110011000011', '0000111111110000'),
                 ('0001001000110100', '1001100001110110')
             ]
-
             if gate_type == "NOT16":
                 sample_inputs = [(pair[0],) for pair in sample_inputs]
-
             for inputs in sample_inputs:
                 for name, value in zip(input_names, inputs):
                     f.write(f"set {name} %B{value},\n")
@@ -168,11 +149,8 @@ def generate_test_file(module_name, num_inputs, input_names, output_names, bit_w
                 f.write("eval,\n")
                 f.write("output;\n\n")
 
-
 def generate_cmp_file(module_name, gate_type, num_inputs, input_names, num_outputs, output_names):
-
     # Function to generate the .cmp file based on specified logic.
-
     # Args:
     #     module_name (str): The name of the module.
     #     gate_type (str): Type of the logical gate or chip.
@@ -183,13 +161,10 @@ def generate_cmp_file(module_name, gate_type, num_inputs, input_names, num_outpu
 
     # Calculate the bit width based on the formatting needs
     bit_width = 16 if gate_type in ["AND16", "OR16", "NOT16"] else 1
-
     # Create headers for the file with appropriate spacing
     header = "|" + "|".join([f" {name:^{bit_width * 2 + 3}} " for name in input_names + output_names]) + "|"
-
     with open(f"{module_name}.cmp", "w") as cmp_file:
         cmp_file.write(header + "\n")
-
         # Generate all possible input combinations
         for inputs in itertools.product('01', repeat=num_inputs):
             output_values = calculate_outputs(gate_type, inputs)
@@ -197,21 +172,16 @@ def generate_cmp_file(module_name, gate_type, num_inputs, input_names, num_outpu
             cmp_file.write(formatted_line + "\n")
 
 from functools import reduce
-
 def calculate_outputs(gate_type, inputs):
-
     # Function to calculate the outputs based on the gate type and inputs.
-    
     # Args:
     #     gate_type (str): Type of the logical gate or chip.
     #     inputs (tuple): Tuple containing input values as strings.
-    
     # Returns:
     #     list: List containing output values as strings.
-
+    
     # Convert input strings to integers for bitwise operations
     inputs = list(map(int, inputs))
-    
     if gate_type == "AND":
         # AND gate output: 1 if all inputs are 1, else 0
         return [str(int(all(inputs)))]
@@ -296,7 +266,6 @@ def calculate_outputs(gate_type, inputs):
             if input_val == 1:
                 return [format(len(inputs) - 1 - i, '03b')]
         return ['0' * len(inputs)]
-    
     elif gate_type == "CUSTOM":
         # Example custom logic: simple adder with sum and carry out
         if len(inputs) == 2:
@@ -306,11 +275,8 @@ def calculate_outputs(gate_type, inputs):
         else:
             return [str(sum(inputs) % 2)]
 
-
 def format_cmp_output_line(inputs, output_values, gate_type, num_inputs):
-
     # Function to format a single line in the .cmp file.
-
     # Args:
     #     inputs (tuple): Tuple containing input values.
     #     output_values (list): List containing output values.
@@ -318,41 +284,27 @@ def format_cmp_output_line(inputs, output_values, gate_type, num_inputs):
     #     num_inputs (int): Number of input pins.
     # Returns:
     #     str: Formatted line for the .cmp file.
-
+    
     # Calculate spacing based on the maximum bit width (assuming 1-bit or 16-bit values)
     max_bit_width = 16 if gate_type in ["AND16", "OR16", "NOT16"] else 1
-
     # Format the input values with proper spacing
     inputs_str = " | ".join([f" {value:^{max_bit_width * 1 + 2}} " for value in inputs])
-    
     # Format the output values with proper spacing
     outputs_str = "".join([f" {value:^{max_bit_width * 2 + 1}} " for value in output_values])
-
     # Combine input and output values into a single line
     formatted_line = f"| {inputs_str} | {outputs_str} |"
-
     return formatted_line
-
 
 def main():
     # Main function that orchestrates the generation of test and comparison files.
-    # Welcome message and instructions
+    # Welcome message and instructions, set required parameters, generate files and print.
     myInit()
-    # Get input and output information from the user
     module_name, gate_type, num_inputs, input_names, num_outputs, output_names = get_input_info()
-    
-    # Determine the bit width for the truth table display
     bit_width = 16 if gate_type in ["AND16", "OR16", "NOT16"] else 1
-    
-    # Generate the test file
     generate_test_file(module_name, num_inputs, input_names, output_names, bit_width, gate_type)
-    
-    # Generate the comparison file
     generate_cmp_file(module_name, gate_type, num_inputs, input_names, num_outputs, output_names)
-    
-    # Print a message indicating successful file generation
-    print(Fore.GREEN + f"Test file ({module_name}.tst) and comparison file ({module_name}.cmp) generated." + Fore.RESET)
-
+    print(Fore.GREEN
+        + f"Test file ({module_name}.tst) and comparison file ({module_name}.cmp) generated." + Fore.RESET)
 if __name__ == "__main__":
     main()
 
