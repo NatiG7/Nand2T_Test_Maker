@@ -267,7 +267,7 @@ def calculate_outputs(gate_type, inputs):
                 return [format(len(inputs) - 1 - i, '03b')]
         return ['0' * len(inputs)]
     elif gate_type == "CUSTOM":
-        # Example custom logic: simple adder with sum and carry out
+        # Simple adder as custom.
         if len(inputs) == 2:
             sum_result = (inputs[0] + inputs[1]) % 2
             carry_out = (inputs[0] & inputs[1])
@@ -277,12 +277,12 @@ def calculate_outputs(gate_type, inputs):
 
 def format_cmp_output_line(inputs, output_values, gate_type, num_inputs):
     # Function to format a single line in the .cmp file.
-    # Args:
+    #   Args:
     #     inputs (tuple): Tuple containing input values.
     #     output_values (list): List containing output values.
     #     gate_type (str): Type of the logical gate or chip.
     #     num_inputs (int): Number of input pins.
-    # Returns:
+    #   Returns:
     #     str: Formatted line for the .cmp file.
     
     # Calculate spacing based on the maximum bit width (assuming 1-bit or 16-bit values)
