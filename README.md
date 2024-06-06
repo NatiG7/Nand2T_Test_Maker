@@ -79,7 +79,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-c## About The Project
+## About The Project
 
 [![Product Name Screen Shot][product-screenshot]]https://example.com)
 
@@ -117,6 +117,7 @@ Produces a cmp file that contains a truth table for the specified inputs and out
 
 ### Prerequisites
 
+[![Python][Python.py]][Python-url]<br>
 Please refer to requirements.txt
 
 ### Installation
