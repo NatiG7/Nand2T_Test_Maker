@@ -37,7 +37,7 @@
     This is a test maker for the Nand2Tetris hardware simulator! <br><a href=https://www.nand2tetris.org/"><strong>Nand2Tetris Website</strong></a><br>
     Creates .tst and .cmp files and works with different logic gates, writes the tst files to match the standard tests in N2THWSim.
     <br />
-    <a href=https://github.com/NatiG7/Nand2T_Test_Maker"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/NatiG7/Nand2T_Test_Maker"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href=https://github.com/NatiG7/Nand2T_Test_Maker">View Demo</a>
