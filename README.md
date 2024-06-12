@@ -152,7 +152,7 @@ Please refer to requirements.txt
 <!-- ROADMAP -->
 ## Roadmap
 
-- [1.0] Creating Test Files for basic gates, NAND, NOT, AND, OR etc.
+- [1.0][✔] Creating Test Files for basic gates, NAND, NOT, AND, OR etc.
   - [1.0.1] Verify XOR,NOR,XNOR,MUX,DMUX
 - [1.1] Add support for more complex gates
   - [1.1.1] Advanced logic application for gate types
