@@ -199,7 +199,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Nati G - email@email_client.com
+Nati G - Naticodeissues@proton.me
 
 Project Link: https://github.com/NatiG7/Nand2T_Test_Maker]https://github.com/NatiG7/Nand2T_Test_Maker)
 
