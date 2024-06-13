@@ -106,7 +106,7 @@ and creating a truth table in the .cmp file that is aligned with boolean logic.
 The test maker uses a python script to receive information about
 the gate you'd like to test.
 * Generates a .cmp file<br>
-   *Produces a cmp file that contains a truth table for the specified inputs and outputs (the N2THWSim applies the gate to the test cases)
+   * Produces a cmp file that contains a truth table for the specified inputs and outputs (the N2THWSim applies the gate to the test cases)
 * Produces a .tst file that:<br>
    * Loads the hdl file specified (Module_Name.hdl)<br>
    * Compares to the created cmp file (Module_Name.cmp)<br>
