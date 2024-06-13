@@ -202,7 +202,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Nati G - Naticodeissues@proton.me
 
-Project Link: https://github.com/NatiG7/Nand2T_Test_Maker]https://github.com/NatiG7/Nand2T_Test_Maker)
+Project Link: [https://github.com/NatiG7/Nand2T_Test_Maker](https://github.com/NatiG7/Nand2T_Test_Maker)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
