@@ -8,7 +8,7 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-<h1>Custom Test maker for the Nand2Tetris<br>(<a href=https://www.nand2tetris.org/"><strong>Nand2Tetris.org</strong></a>)</h1>
+<h1>Custom Test maker for the Nand2Tetris Hardware Simulator<br>(<a href=https://www.nand2tetris.org/"><strong>Nand2Tetris.org</strong></a>)</h1>
 
 <!-- PROJECT SHIELDS -->
 <!--
