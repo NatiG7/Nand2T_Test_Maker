@@ -1,6 +1,7 @@
 import itertools
 import subprocess
 
+
 def myInit():
     # Welcome message and instructions, some colors too.
     print("Welcome to the Logic Gate and Circuit Tester Program!\nThis program will help you generate "
@@ -11,8 +12,10 @@ def myInit():
         + "number of inputs and outputs, and their names."
         + "Let's get started!\n")
     
+from colorama import Fore, init
 from tqdm import tqdm
-from colorama import init,Fore
+
+
 def get_input_info():
     # Function to get user input for the module name, the type of gate or chip,
     # the number and names of inputs and outputs.
@@ -173,6 +176,8 @@ def generate_cmp_file(module_name, gate_type, num_inputs, input_names, num_outpu
             cmp_file.write(formatted_line + "\n")
 
 from functools import reduce
+
+
 def calculate_outputs(gate_type, inputs):
     # Function to calculate the outputs based on the gate type and inputs.
     # Args:
@@ -291,7 +296,7 @@ def format_cmp_output_line(inputs, output_values, gate_type, num_inputs):
     # Format the input values with proper spacing
     inputs_str = " | ".join([f" {value:^{max_bit_width * 1 + 2}} " for value in inputs])
     # Format the output values with proper spacing
-    outputs_str = "".join([f" {value:^{max_bit_width * 2 + 1}} " for value in output_values])
+    outputs_str = " | ".join([f" {value:^{max_bit_width * 2 + 1}} " for value in output_values])
     # Combine input and output values into a single line
     formatted_line = f"| {inputs_str} | {outputs_str} |"
     return formatted_line
